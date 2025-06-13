@@ -5,6 +5,17 @@ import HeroImage4 from './yellow-hero-image.png'
 import Logo from './Logo.png'
 import Control from './Control.png'
 import CanadaFlag from './Country.png'
+import MobileMockup from './MobileMockup.png'
+import Girl from './Girl.png'
+import CanadaCard from './CanadaCard.png'
+import NigeriaCard from './NigerianCard.png'
+import USDCard from './USDCard.png'
+import CFACard from './CFACard.png'
+import Calendar from './Calendar.png'
+import ShoppingPhone from './ShoppingMobileMockup.tsx.png'
+import ShoppingImage1 from './shopImage1.png'
+import PayBills from './PayBills.png'
+
 
 export const ImageAssets = {
   HeroImage1,
@@ -13,5 +24,15 @@ export const ImageAssets = {
   HeroImage4,
   Logo,
   Control,
-  CanadaFlag
+  CanadaFlag,
+  MobileMockup,
+  Girl,
+  CanadaCard,
+  NigeriaCard,
+  USDCard,
+  CFACard,
+  Calendar,
+  ShoppingImage1,
+  ShoppingPhone,
+  PayBills
 };
