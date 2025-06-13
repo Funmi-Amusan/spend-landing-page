@@ -8,7 +8,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative h-screen w-full bg-cover bg-center"
+      className="relative h-screen w-full bg-cover bg-center "
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
        <div
