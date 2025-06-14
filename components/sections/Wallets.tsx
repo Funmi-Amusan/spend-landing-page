@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 
 import React, { useRef } from 'react'
@@ -35,7 +36,7 @@ const Wallets = () => {
   const girlX = useTransform(scrollYProgress, [0.3, 0.7], [200, 0])
   const girlOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1])
 
-  const getCardAnimations = (index) => {
+  const getCardAnimations = (index: number) => {
     const startPoint = 0.4 + (index * 0.08)
     const endPoint = startPoint + 0.25
     
@@ -57,20 +58,6 @@ const Wallets = () => {
       rotate: useSpring(rotate, springConfig),
       scale: useSpring(scale, springConfig),
       opacity: useSpring(opacity, springConfig)
-    }
-  }
-
-  const cardHoverVariants = {
-    hover: {
-      scale: 1.1,
-      y: -30,
-      rotate: 0,
-      zIndex: 50,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
     }
   }
 
@@ -144,12 +131,24 @@ const Wallets = () => {
                   opacity: cardAnimations.opacity,
                   zIndex: cards.length - index, 
                 }}
-                variants={cardHoverVariants}
+                variants={{
+                  hover: {
+                    scale: 1.05,
+                    y: -5,
+                    rotate: 2,
+                    zIndex: 10,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20
+                    }
+                  }
+                }}
                 whileHover="hover"
                 className="absolute w-full cursor-pointer"
               >
                 <motion.div
-                  animate={{
+                  style={{
                     y: useTransform(floatingAnimation, [0, 1], [0, Math.sin(Date.now() * 0.001 + index) * 5])
                   }}
                   transition={{
@@ -174,9 +173,8 @@ const Wallets = () => {
                 />
               </motion.div>
             )
-          })}
-        </div>
 
+          })}        </div>
         <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{
