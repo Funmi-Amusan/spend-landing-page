@@ -1,7 +1,5 @@
 'use client'
 
-import { ImageAssets } from '@/assets';
-import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import { motion } from 'framer-motion';
@@ -11,6 +9,7 @@ import BaseButton from '../ui/BaseButton';
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(0);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -60,12 +59,14 @@ const Hero = () => {
         >
           <div
             className="absolute inset-0 z-10 hidden lg:block bg-black/60"
+           
             style={{
               clipPath: 'url(#rounded-cutout)',
               WebkitClipPath: 'url(#rounded-cutout)',
             }}
           />
           <svg width="0" height="0">
+            
             <defs>
               <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
               <path d="
@@ -93,11 +94,11 @@ const Hero = () => {
             </motion.h1>
 
             {/* mobile view */}
-            <div className='flex flex-col lg:hidden w-full h-full  justify-around max-w-sm mx-auto space-y-6'>
+            <div className='flex flex-col lg:hidden w-full h-full justify-around  px-8 items-center mx-auto space-y-6'>
              
                 <motion.div
                 variants={itemVariants}
-                className='flex justify-between items-center'
+                className='flex justify-between w-full items-center'
               >
                 <div className='text-left'>
                   <h3 className=' font-sans text-lg'>{slides[currentSlide].leftSection.country}</h3>
@@ -113,16 +114,13 @@ const Hero = () => {
               </motion.div>
               <motion.div
                 variants={itemVariants}
-                className='bg-white/10 backdrop-blur-md rounded-2xl p-4 mx-4'
+                className='bg-white/10 backdrop-blur-md w-full max-w-md rounded-2xl p-4 mx-4'
               >
-                <div className='flex justify-between items-center mb-3'>
-                  <img src={slides[currentSlide].middleSection.flag.src} alt="Flag" className='w-8 h-8' />
-                  <h3 className='text-lg font-bold'>{slides[currentSlide].middleSection.amount}</h3>
-                </div>
+              
                 
                 <div className='flex justify-between items-center'>
                   <div className='flex items-center gap-2'>
-                    <img src={slides[currentSlide].middleSection.transfer.image.src} alt="Flag" className='w-4 h-4' />
+                    <img src={slides[currentSlide].middleSection.transfer.image.src} alt="Flag" className='w-8 h-8' />
                     <div>
                       <p className='text-xs text-white/70'>{slides[currentSlide].middleSection.transfer.time}</p>
                       <p className='text-sm'>{slides[currentSlide].middleSection.transfer.description}</p>
@@ -132,8 +130,8 @@ const Hero = () => {
                 </div>
               </motion.div>
             </div>
-            {/* tab and desktop view */}
-            <div className='hidden lg:grid grid-cols-3 gap-4 mt-8 grow w-full text-white/80'>
+            {/*  desktop view */}
+            <div className='hidden lg:grid grid-cols-[1fr_30vw_1fr] gap-4 mt-8 grow w-full text-white/80'>
               
               {/* Left Section */}
               <motion.div
@@ -150,7 +148,7 @@ const Hero = () => {
               {/* Middle Section */}
               <motion.div
                 variants={itemVariants}
-                className='w-full max-w-sm mx-auto py-8 gap-36 flex flex-col justify-end items-center text-start h-full'
+                className='w-full max-w-sm mx-auto p-8 gap-36 flex flex-col justify-end items-center text-start h-full'
               >
                 <div className={` flex w-full justify-between items-center ${slides[currentSlide].middleSection.reverseOrder ? 'flex-row-reverse' : ''}`}>
                   <img src={slides[currentSlide].middleSection.flag.src} alt="Flag" className='w-12 h-12' />
@@ -161,11 +159,11 @@ const Hero = () => {
                 <div className='flex gap-4 items-center'>
                   <img src={slides[currentSlide].middleSection.transfer.image.src} alt="Flag" className='w-8 h-8' />
                   <div className='flex flex-col'>
-                    <p className='text-white/50'>{slides[currentSlide].middleSection.transfer.time}</p>
-                    <p className='text-white font-semibold'>{slides[currentSlide].middleSection.transfer.description}</p>
+                    <p className='text-white/50 inline-flex flex-nowrap whitespace-nowrap'>{slides[currentSlide].middleSection.transfer.time}</p>
+                    <p className='text-white font-semibold inline-flex flex-nowrap whitespace-nowrap'>{slides[currentSlide].middleSection.transfer.description}</p>
                   </div>
                 </div>
-                  <p className='text-white font-semibold'>{slides[currentSlide].middleSection.transfer.amount}</p>
+                  <p className='text-white font-semibold inline-flex flex-nowrap whitespace-nowrap'>{slides[currentSlide].middleSection.transfer.amount}</p>
                 </div>
               </motion.div>
 
