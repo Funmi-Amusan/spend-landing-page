@@ -177,7 +177,7 @@ const Wallets = () => {
         />
       </div>
 
-      <div className='flex flex-col justify-end h-full items-center'>
+      <div className='md:flex flex-col justify-end h-full items-center hidden'>
         <motion.div
           style={{ 
             x: useSpring(girlX, springConfig),

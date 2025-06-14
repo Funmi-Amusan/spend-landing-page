@@ -17,8 +17,8 @@ const Accordion = ({ question, answer, id, isOpen, onToggle }: AccordionProps) =
   return (
     <div onClick={() => onToggle(id)} className={`flex-center-col max-w-2xl gap-2 w-full py-4 mx-4 cursor-pointer border-b border-white/30 dark:border-white/30 `}>
         <div className='flex justify-between items-center  w-full text-start'> 
-            <h5 className="font-black text-white/40 text-xl">{question}</h5>
-            {isOpen ? <FaMinus className="text-white/40" size={36} /> : <FaPlus className="text-white/40" size={36} />}
+            <h5 className="font-black text-white/40 text-base  md:text-xl">{question}</h5>
+            {isOpen ? <FaMinus className="text-white/40 text-base md:text-xl" /> : <FaPlus className="text-white/40 text-base md:text-xl" />}
         </div>
 
         <AnimatePresence> 

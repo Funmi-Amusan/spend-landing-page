@@ -16,10 +16,10 @@ const Contact = () => {
       }
 
   return (
-   <section className='bg-purple-500 min-h-screen w-full p-16 relative overflow-x-clip'>
-<div className='rounded-2xl p-16 h-full grid grid-cols-2 bg-purple-300/40 z-20 relative backdrop-blur-2xl shadow-2xl '>
-<div className='text-white flex flex-col justify-between max-w-[400px]'>
-    <h3 className='font-black text-2xl'>Get in Touch</h3>
+    <section className="py-8 px-4 sm:py-12 lg:py-16 min-h-screen bg-purple-500"> 
+<div className='rounded-2xl p-16 h-full grid grid-cols-1 md:grid-cols-2 bg-purple-300/40 z-20 relative backdrop-blur-2xl shadow-2xl '>
+<div className='text-white flex flex-col justify-between gap-2 max-w-[400px]'>
+    <h3 className='font-black text-lg md:text-2xl text-center md:text-start'>Get in Touch</h3>
     <div className='flex flex-col gap-4'>
         <p>Do you have any questions or feedback? We&apos;d love to hear from you.</p>
         <p className='inline-flex items-center gap-2'> <FaPhoneAlt /> +1(343)338-5190</p>
@@ -28,7 +28,7 @@ const Contact = () => {
     </div>
 </div>
 <div>
-<form action={sendMessage} className='w-full max-w-[400px] flex-flex-col' data-testid="contact-form">
+<form action={sendMessage} className='w-full max-w-[400px] flex-flex-col py-8' data-testid="contact-form">
             <BaseInput
               placeholder='Firstname Lastname'
               name='fullname'
