@@ -32,6 +32,8 @@ const Header = () => {
     [1.3, 1]
   )
 
+  // fix header blocking hero title
+
   return (
     <motion.header 
       className="fixed top-0 w-full z-50 bg-transparent flex items-center justify-between px-8"

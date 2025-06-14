@@ -16,7 +16,7 @@ const Contact = () => {
       }
 
   return (
-   <section className='bg-purple-500 min-h-screen w-full p-16 relative '>
+   <section className='bg-purple-500 min-h-screen w-full p-16 relative overflow-x-clip'>
 <div className='rounded-2xl p-16 h-full grid grid-cols-2 bg-purple-300/40 z-20 relative backdrop-blur-2xl shadow-2xl '>
 <div className='text-white flex flex-col justify-between max-w-[400px]'>
     <h3 className='font-black text-2xl'>Get in Touch</h3>
