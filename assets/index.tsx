@@ -15,6 +15,11 @@ import Calendar from './Calendar.png'
 import ShoppingPhone from './ShoppingMobileMockup.tsx.png'
 import ShoppingImage1 from './shopImage1.png'
 import PayBills from './PayBills.png'
+import Currency from './Currency.png';
+import Eating from './Eating.png';
+import Shopping from './Shopping.png';
+import PaperPlane from './Paper Plane.png';
+import Send from './Send.png'
 
 
 export const ImageAssets = {
@@ -34,5 +39,10 @@ export const ImageAssets = {
   Calendar,
   ShoppingImage1,
   ShoppingPhone,
-  PayBills
+  PayBills,
+  Currency,
+  Eating,
+  Shopping,
+  PaperPlane,
+  Send
 };

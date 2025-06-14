@@ -13,12 +13,12 @@ const Gallery = () => {
       </div>
       <h2 className='text-2xl font-black max-w-md text-center tracking-tighter leading-12'>Send and Receive Money</h2>
 
-      <Image src={ImageAssets.HeroImage1} alt={''} className='absolute w-32 top-20 -left-20 aspect-square object-cover rounded-4xl z-10 ' />
-      <Image src={ImageAssets.HeroImage1} alt={''} className='absolute w-32 top-20 right-12 aspect-square object-cover rounded-4xl z-10 ' />
-      <Image src={ImageAssets.HeroImage1} alt={''} className='absolute w-48 bottom-20 -left-20 aspect-square object-cover rounded-4xl z-10 ' />
-      <Image src={ImageAssets.HeroImage1} alt={''} className='absolute w-36 bottom-20 -right-20 aspect-square object-cover rounded-4xl z-10 ' />
-      <Image src={ImageAssets.HeroImage1} alt={''} className='absolute w-32 top-1/5 left-1/6 aspect-square object-cover rounded-4xl z-10 ' />
-      <Image src={ImageAssets.HeroImage1} alt={''} className='absolute w-32 top-1/3 right-1/6 aspect-square object-cover rounded-4xl z-10 ' />
+      <Image src={ImageAssets.Send} alt={''} className='absolute w-32 top-20 -left-20 aspect-square object-cover rounded-4xl z-10 ' />
+      <Image src={ImageAssets.Eating} alt={''} className='absolute w-32 top-20 right-12 aspect-square object-cover rounded-4xl z-10 ' />
+      <Image src={ImageAssets.Shopping} alt={''} className='absolute w-48 bottom-20 -left-20 aspect-square object-cover rounded-4xl z-10 ' />
+      <Image src={ImageAssets.Send} alt={''} className='absolute w-36 bottom-20 -right-20 aspect-square object-cover rounded-4xl z-10 ' />
+      <Image src={ImageAssets.Currency} alt={''} className='absolute w-32 top-1/5 left-1/6 aspect-square object-cover rounded-4xl z-10 ' />
+      <Image src={ImageAssets.PaperPlane} alt={''} className='absolute w-32 top-1/3 right-1/6 aspect-square object-cover rounded-4xl z-10 ' />
   
 
     </section>
