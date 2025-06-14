@@ -1,77 +1,151 @@
+'use client'
+
 import { ImageAssets } from '@/assets';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
+import { motion } from 'framer-motion';
+import { slides } from '@/lib/data';
 
 const Hero = () => {
-  const heroBackground = './brown-hero-image.png';
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPrevSlide(currentSlide);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 10000);
+
+    return () => clearInterval(timer);
+  }, [currentSlide]);
+
+  const contentVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.8}
+    }
+  };
 
   return (
-    <section
-      className="relative h-screen w-full bg-cover bg-center "
-      style={{ backgroundImage: `url(${heroBackground})` }}
-    >
-       <div
-  className="absolute inset-0 z-10 bg-black/70"
-   style={{
-    clipPath: 'url(#rounded-cutout)',
-    WebkitClipPath: 'url(#rounded-cutout)',
-  }}
-/>
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0 w-full h-full">
 
-<svg width="0" height="0">
-  <defs>
-    <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
-    <path d="
+        {/* Previous Slide Fading Out */}
+        <motion.div
+          key={`prev-${prevSlide}`}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${slides[prevSlide].background})` }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        />
+
+        {/* Current Slide Showing Underneath */}
+        <motion.div
+          key={`current-${currentSlide}`}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${slides[currentSlide].background})` }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div
+            className="absolute inset-0 z-10 bg-black/70"
+            style={{
+              clipPath: 'url(#rounded-cutout)',
+              WebkitClipPath: 'url(#rounded-cutout)',
+            }}
+          />
+
+          <svg width="0" height="0">
+            <defs>
+              <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
+              <path d="
   M0,0 L0,1 
   L0.35,1 
-  L0.35,0.45
-  Q0.35,0.4 0.4,0.4 
-  L0.6,0.4
-  Q0.65,0.4 0.65,0.45
+  L0.35,0.6
+  Q0.35,0.25 0.4,0.25 
+  L0.6,0.25
+  Q0.65,0.25 0.65,0.6
   L0.65,1 
   L1,1 L1,0 Z
 " />
-    </clipPath>
-  </defs>
-</svg>
-<div className='relative z-20 py-8 size-full flex flex-col items-center justify-center text-center'>
-  <h1 className='text-white text-5xl font-bold'>Send. Shop. Spend</h1>
-  <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 grow w-full text-white/80'>
-    <div className=' p-4 rounded-lg shadow-md flex flex-col justify-end items-center text-start h-full'>
-    <div className='h-fit max-w-[260px] '>
-      <h2 className='font-semibold text-2xl'>Canada</h2>
-      <GoArrowRight  className='h-14 w-14' />
-      <p className='mt-12'>Seamlessly bridge distances with our effortless remittance service. Send support, and financial care to your loved ones back home.</p>
-    </div>
 
-    </div>
-    <div className=' w-full py-8 gap-16 flex flex-col justify-end items-center text-start h-full'>
-     <div className=' flex w-full px-16 justify-between items-center'>
-      <Image src={ImageAssets.CanadaFlag} alt={'Canada Flag'} className='w-12 h-12' />
-      <h3 className='text-xl text-white font-bold'>+C$750</h3>
-     </div>
+              </clipPath>
+            </defs>
+          </svg>
 
-     <div className='flex justify-between items-center gap-4 p-4 backdrop-blur-md bg-white/10 rounded-2xl '>
-      <img src={ImageAssets.CanadaFlag.src} alt={'Canada Flag'} className='w-6 h-6'/>
-      <div className='flex flex-col'>
-        <p className='text-white/50'>Yesterday, 1:28 AM</p>
-        <p className='text-white'>Transfer to Lil Sis</p>
-      </div>
-      <p className='text-white'>-₦862,912.94</p>
-     </div>
-    </div>
-    <div className=' p-4 rounded-lg shadow-md flex flex-col justify-end items-center text-right h-full'>
-    <div className='h-fit max-w-[260px]'>
-      <h2 className='font-semibold text-5xl'>Canada</h2>
-      <GoArrowLeft  className='h-14 w-14'  />
-      <p className=' mt-12'>Seamlessly bridge distances with our effortless remittance service. Send support, and financial care to your loved ones back home.</p>
-    </div>
+          {/* Slide Content */}
+          <div className='relative z-20 py-8 size-full flex flex-col items-center justify-center text-center text-white'>
+            <motion.h1
+              variants={contentVariants}
+              initial="hidden"
+              animate="visible"
+              className='text-5xl font-bold'
+            >
+              {slides[currentSlide].title}
+            </motion.h1>
 
-    </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 grow w-full text-white/80'>
+              
+              {/* Left Section */}
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className='p-4 rounded-lg flex flex-col justify-end items-center text-start h-full'
+              >
+                <div className='h-fit max-w-[260px]'>
+                  <h2 className='font-semibold text-2xl'>{slides[currentSlide].leftSection.country}</h2>
+                  <GoArrowRight className='h-14 w-14' />
+                  <p className='mt-12'>{slides[currentSlide].leftSection.description}</p>
+                </div>
+              </motion.div>
+
+              {/* Middle Section */}
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className='w-full py-8 gap-36 flex flex-col justify-end items-center text-start h-full'
+              >
+                <div className='flex w-full px-16 justify-between items-center'>
+                  <Image src={ImageAssets.CanadaFlag} alt="Flag" className='w-12 h-12' />
+                  <h3 className='text-xl text-white font-bold'>{slides[currentSlide].middleSection.amount}</h3>
+                </div>
+
+                <div className='flex justify-between items-center gap-4 p-4 backdrop-blur-md bg-white/10 rounded-2xl'>
+                  <img src={ImageAssets.CanadaFlag.src} alt="Flag" className='w-6 h-6' />
+                  <div className='flex flex-col'>
+                    <p className='text-white/50'>{slides[currentSlide].middleSection.transfer.time}</p>
+                    <p className='text-white'>{slides[currentSlide].middleSection.transfer.recipient}</p>
+                  </div>
+                  <p className='text-white'>{slides[currentSlide].middleSection.transfer.amount}</p>
+                </div>
+              </motion.div>
+
+              {/* Right Section */}
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className='p-4 rounded-lg flex flex-col justify-end items-center text-right h-full'
+              >
+                <div className='h-fit max-w-[260px]'>
+                  <h2 className='font-semibold text-2xl'>{slides[currentSlide].rightSection.country}</h2>
+                  <div className='w-full flex justify-end'>
+    <GoArrowLeft className='h-14 w-14' />
   </div>
-</div>
+                  <p className='mt-12'>{slides[currentSlide].rightSection.description}</p>
+                </div>
+              </motion.div>
 
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };
