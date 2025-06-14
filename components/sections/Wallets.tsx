@@ -11,7 +11,7 @@ const Wallets = () => {
     target: containerRef,
     offset: ["start end", "start start"]
   })
-  
+
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 }
 
   // Card data
@@ -85,7 +85,7 @@ const Wallets = () => {
       ref={containerRef}
       className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 grow w-full min-h-screen relative overflow-hidden'
     >
-      <div className='flex flex-col justify-end h-full items-center p-8'>
+      <div className='flex flex-col gap-12 justify-end h-full max-w-md items-center text-center md:text-start p-8'>
         <motion.h2 
           style={{ 
             y: useSpring(titleY, springConfig),
@@ -95,6 +95,8 @@ const Wallets = () => {
         >
           Multi-currency Wallets
         </motion.h2>
+        <div className='flex flex-col gap-4'>
+
         <motion.p
           style={{ 
             y: useSpring(textY, springConfig),
@@ -102,9 +104,17 @@ const Wallets = () => {
           }}
         >
           Facilitate effortless management of multiple wallets, each dedicated to a specific currency, streamlining transactions and storage across various currencies. 
-          <br />
+         </motion.p>
+
+        <motion.p
+          style={{ 
+            y: useSpring(textY, springConfig),
+            opacity: useSpring(textOpacity, springConfig)
+          }}
+        >
           Enhance user experience with tailored wallets for different currencies, empowering efficient financial management and flexibility in global transactions
         </motion.p>
+        </div>
       </div>
 
       <div className='flex flex-col justify-end h-full items-center relative'>

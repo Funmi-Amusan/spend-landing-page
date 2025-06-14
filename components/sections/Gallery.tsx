@@ -10,7 +10,7 @@ const Gallery = () => {
         <Image 
           src={ImageAssets.HeroImage1} 
           alt='Send money to loved ones' 
-          className='w-[70vw] sm:w-[50vw] md:w-[40vw] lg:w-[30vw] aspect-square object-cover rounded-3xl md:rounded-4xl relative' 
+          className='w-[70vw]  md:w-[30vw] max-w- aspect-square object-cover rounded-3xl md:rounded-4xl relative' 
         />
         <div className='absolute inset-0 rounded-3xl md:rounded-4xl flex items-end p-4 md:p-6 bg-gradient-to-t from-black/60 to-transparent'>
           <p className='text-white text-sm md:text-base'>
@@ -18,7 +18,7 @@ const Gallery = () => {
           </p>
         </div>
       </div>
-      <h2 className='text-xl sm:text-2xl md:text-3xl font-black max-w-xs sm:max-w-md text-center tracking-tighter leading-tight px-4 relative z-20'>
+      <h2 className='text-2xl font-black max-w-xs sm:max-w-md text-center tracking-tighter leading-tight px-4 relative z-20'>
         Send and Receive Money
       </h2>
 

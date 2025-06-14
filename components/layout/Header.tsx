@@ -32,11 +32,9 @@ const Header = () => {
     [1.3, 1]
   )
 
-  // fix header blocking hero title
-
   return (
     <motion.header 
-      className="fixed top-0 w-full z-50 bg-transparent flex items-center justify-between px-8"
+      className="fixed top-0 w-full z-50 bg-transparent flex items-start md:items-center justify-between px-4 md:px-8"
       style={{
         backdropFilter: backdropBlur,
         backgroundColor: backgroundColor,
@@ -44,12 +42,10 @@ const Header = () => {
       }}
     >
       <motion.div style={{ scale: logoScale }}>
-        <Image src={ImageAssets.Logo} alt="logo" width={120} height={40} className="h-auto w-auto" />
+        <Image src={ImageAssets.Logo} alt="logo" width={120} height={40} className="lg:h-full h-10 w-auto" />
       </motion.div>
-      
-      <motion.div style={{ scale: logoScale }}>
-        <Image src={ImageAssets.Control} alt="control" width={40} height={40} className='h-auto w-auto' />
-      </motion.div>
+
+     
     </motion.header>
   )
 }

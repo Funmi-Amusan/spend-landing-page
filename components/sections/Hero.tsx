@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import { motion } from 'framer-motion';
 import { slides } from '@/lib/data';
+import BaseButton from '../ui/BaseButton';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,14 +52,14 @@ const Hero = () => {
         {/* Current Slide */}
         <motion.div
           key={`current-${currentSlide}`}
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center pt-12 lg:pt-0"
           style={{ backgroundImage: `url(${slides[currentSlide].background})` }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
           <div
-            className="absolute inset-0 z-10 hidden md:block bg-black/60"
+            className="absolute inset-0 z-10 hidden lg:block bg-black/60"
             style={{
               clipPath: 'url(#rounded-cutout)',
               WebkitClipPath: 'url(#rounded-cutout)',
@@ -86,13 +87,13 @@ const Hero = () => {
               variants={contentVariants}
               initial="hidden"
               animate="visible"
-              className='text-3xl md:text-5xl mb-8 md:mb-0'
+              className='text-3xl lg:text-5xl mb-8 lg:mb-0'
             >
             Send. Shop. Spend
             </motion.h1>
 
             {/* mobile view */}
-            <div className='flex flex-col md:hidden w-full h-full  justify-around max-w-sm mx-auto space-y-6'>
+            <div className='flex flex-col lg:hidden w-full h-full  justify-around max-w-sm mx-auto space-y-6'>
              
                 <motion.div
                 variants={itemVariants}
@@ -115,13 +116,13 @@ const Hero = () => {
                 className='bg-white/10 backdrop-blur-md rounded-2xl p-4 mx-4'
               >
                 <div className='flex justify-between items-center mb-3'>
-                  <Image src={ImageAssets.CanadaFlag} alt="Flag" className='w-8 h-8' />
+                  <img src={slides[currentSlide].middleSection.flag.src} alt="Flag" className='w-8 h-8' />
                   <h3 className='text-lg font-bold'>{slides[currentSlide].middleSection.amount}</h3>
                 </div>
                 
                 <div className='flex justify-between items-center'>
                   <div className='flex items-center gap-2'>
-                    <img src={ImageAssets.CanadaFlag.src} alt="Flag" className='w-4 h-4' />
+                    <img src={slides[currentSlide].middleSection.transfer.image.src} alt="Flag" className='w-4 h-4' />
                     <div>
                       <p className='text-xs text-white/70'>{slides[currentSlide].middleSection.transfer.time}</p>
                       <p className='text-sm'>{slides[currentSlide].middleSection.transfer.description}</p>
@@ -132,7 +133,7 @@ const Hero = () => {
               </motion.div>
             </div>
             {/* tab and desktop view */}
-            <div className='hidden md:grid grid-cols-3 gap-4 mt-8 grow w-full text-white/80'>
+            <div className='hidden lg:grid grid-cols-3 gap-4 mt-8 grow w-full text-white/80'>
               
               {/* Left Section */}
               <motion.div
@@ -151,8 +152,8 @@ const Hero = () => {
                 variants={itemVariants}
                 className='w-full max-w-sm mx-auto py-8 gap-36 flex flex-col justify-end items-center text-start h-full'
               >
-                <div className='flex w-full justify-between items-center'>
-                  <Image src={ImageAssets.CanadaFlag} alt="Flag" className='w-12 h-12' />
+                <div className={` flex w-full justify-between items-center ${slides[currentSlide].middleSection.reverseOrder ? 'flex-row-reverse' : ''}`}>
+                  <img src={slides[currentSlide].middleSection.flag.src} alt="Flag" className='w-12 h-12' />
                   <h3 className='text-xl text-white font-black font-paytone'>{slides[currentSlide].middleSection.amount}</h3>
                 </div>
 
@@ -180,7 +181,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <p className='mt-12 font-light'>Get Revve on your phone</p>
-                    <button className='mt-2 px-4 py-3 border-white border-2 rounded-xl text-white font-semibold'>Download the app</button>
+                    <BaseButton text="Download the app" variant="transparent" />
                   </div>
                 </div>
               </motion.div>
