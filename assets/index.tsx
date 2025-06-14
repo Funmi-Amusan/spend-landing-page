@@ -19,7 +19,13 @@ import Currency from './Currency.png';
 import Eating from './Eating.png';
 import Shopping from './Shopping.png';
 import PaperPlane from './Paper Plane.png';
-import Send from './Send.png'
+import Send from './Send.png';
+import GTB from './GTB.png';
+import Absa from './Absa.png';
+import GhanaianFlag from './GhanaianFlag.png';
+import KFC from './KFC.png';
+import NigerianFlag from './NigerianFlag.png';
+import MTN from './MTN.png'
 
 
 export const ImageAssets = {
@@ -44,5 +50,11 @@ export const ImageAssets = {
   Eating,
   Shopping,
   PaperPlane,
-  Send
+  Send,
+  MTN,
+  NigerianFlag,
+  Absa,
+  KFC,
+  GhanaianFlag,
+  GTB
 };

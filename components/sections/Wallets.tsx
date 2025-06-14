@@ -11,8 +11,7 @@ const Wallets = () => {
     target: containerRef,
     offset: ["start end", "start start"]
   })
-
-  // Smooth spring physics for scroll animations
+  
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 }
 
   // Card data

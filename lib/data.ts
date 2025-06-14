@@ -1,3 +1,5 @@
+import { ImageAssets } from "@/assets";
+
 export const faqs = [
     {
       id: 1,
@@ -49,87 +51,87 @@ export const faqs = [
       },
   ];
 
-  const heroBackground = ['./yellow-hero-image.png', './pink-hero-image.png', './teal-hero-image.png', './brown-hero-image.png'];
+  const heroBackground = ['./yellow-hero-image.png', './teal-hero-image.png', './pink-hero-image.png', './brown-hero-image.png'];
 
   export const slides = [
     {
       background: heroBackground[0],
-      title: 'Send. Shop. Spend',
       leftSection: {
         country: 'Canada',
-        description: 'Seamlessly bridge distances with our effortless remittance service. Send support, and financial care to your loved ones back home.'
       },
       middleSection: {
         amount: '+C$750',
+        flag: ImageAssets.CanadaFlag,
+        reverseOrder: false,
         transfer: {
+          image: ImageAssets.GTB,
           time: 'Yesterday, 1:28 AM',
-          recipient: 'Transfer to Lil Sis',
+          description: 'Transfer to Lil Sis',
           amount: '-₦862,912.94'
         }
       },
       rightSection: {
         country: 'Nigeria',
-        description: 'Experience lightning-fast transfers with competitive rates. Your money reaches its destination safely and securely.'
       }
     },
     {
       background: heroBackground[1],
-      title: 'Connect. Transfer. Prosper',
       leftSection: {
-        country: 'USA',
-        description: 'Connect with family and friends across borders. Our reliable platform ensures your money reaches loved ones instantly.'
+        country: 'Canada',
       },
       middleSection: {
-        amount: '+$1,200',
+        amount: '+₵3,920',
+        flag: ImageAssets.GhanaianFlag,
+        reverseOrder: true,
         transfer: {
-          time: 'Today, 3:45 PM',
-          recipient: 'Transfer to Mom',
-          amount: '-₦1,250,000.00'
+          image: ImageAssets.Absa,
+          time: 'Today, 9:45 PM',
+          description: 'Online transaction',
+          amount: '+₵3,920'
         }
       },
       rightSection: {
         country: 'Ghana',
-        description: 'Build financial bridges that strengthen relationships. Send money with confidence and watch prosperity grow.'
       }
     },
     {
       background: heroBackground[2],
-      title: 'Save. Send. Smile',
       leftSection: {
-        country: 'UK',
-        description: 'Save on transfer fees while sending more to those who matter most. Every pound sent creates smiles back home.'
+        country: 'Nigeria',
       },
       middleSection: {
         amount: '+£500',
+        flag: ImageAssets.NigerianFlag,
+        reverseOrder: false,
         transfer: {
-          time: '2 hours ago',
-          recipient: 'Transfer to Brother',
-          amount: '-₦975,500.25'
+          image: ImageAssets.KFC,
+          time: 'Today, 11:28 AM',
+          description: 'Paid at KFC',
+          amount: '-₵760.87'
         }
       },
       rightSection: {
-        country: 'Kenya',
-        description: 'Empower your loved ones with financial support that arrives when they need it most. Fast, secure, reliable.'
+        country: 'Ghana',
       }
     },
     {
       background: heroBackground[3],
-      title: 'Save. Send. Smile',
       leftSection: {
-        country: 'UK',
-        description: 'Save on transfer fees while sending more to those who matter most. Every pound sent creates smiles back home.'
+        country: 'Nigeria',
       },
       middleSection: {
-        amount: '+£500',
+        amount: '-₦17,000',
+        flag: ImageAssets.NigerianFlag,
+        reverseOrder: true,
         transfer: {
-          time: '2 hours ago',
-          recipient: 'Transfer to Brother',
-          amount: '-₦975,500.25'
+          image: ImageAssets.MTN,
+          time: 'Today, 3:15 PM',
+          description: 'Airtime top-up',
+          amount: '-₦17,000'
         }
       },
       rightSection: {
-        country: 'Kenya',
-        description: 'Empower your loved ones with financial support that arrives when they need it most. Fast, secure, reliable.'
+        country: 'Nigeria',
       }
     }
   ];

@@ -58,13 +58,12 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <div
-            className="absolute inset-0 z-10 hidden md:block bg-black/70"
+            className="absolute inset-0 z-10 hidden md:block bg-black/60"
             style={{
               clipPath: 'url(#rounded-cutout)',
               WebkitClipPath: 'url(#rounded-cutout)',
             }}
           />
-
           <svg width="0" height="0">
             <defs>
               <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
@@ -82,17 +81,17 @@ const Hero = () => {
               </clipPath>
             </defs>
           </svg>
-
           <div className='relative z-20 py-8 size-full flex flex-col items-center justify-center text-center text-white'>
             <motion.h1
               variants={contentVariants}
               initial="hidden"
               animate="visible"
-              className='text-3xl md:text-5xl font-bold mb-8 md:mb-0'
+              className='text-3xl md:text-5xl mb-8 md:mb-0'
             >
-              {slides[currentSlide].title}
+            Send. Shop. Spend
             </motion.h1>
 
+            {/* mobile view */}
             <div className='flex flex-col md:hidden w-full h-full  justify-around max-w-sm mx-auto space-y-6'>
              
                 <motion.div
@@ -100,12 +99,12 @@ const Hero = () => {
                 className='flex justify-between items-center'
               >
                 <div className='text-left'>
-                  <h2 className='font-semibold text-lg'>{slides[currentSlide].leftSection.country}</h2>
+                  <h3 className=' font-sans text-lg'>{slides[currentSlide].leftSection.country}</h3>
                   <GoArrowRight className='h-6 w-6 mt-1' />
                 </div>
                 
                 <div className='text-right'>
-                  <h2 className='font-semibold text-lg'>{slides[currentSlide].rightSection.country}</h2>
+                  <h3 className=' font-sans text-lg'>{slides[currentSlide].rightSection.country}</h3>
                   <div className='flex justify-end mt-1'>
                     <GoArrowLeft className='h-6 w-6' />
                   </div>
@@ -125,14 +124,14 @@ const Hero = () => {
                     <img src={ImageAssets.CanadaFlag.src} alt="Flag" className='w-4 h-4' />
                     <div>
                       <p className='text-xs text-white/70'>{slides[currentSlide].middleSection.transfer.time}</p>
-                      <p className='text-sm'>{slides[currentSlide].middleSection.transfer.recipient}</p>
+                      <p className='text-sm'>{slides[currentSlide].middleSection.transfer.description}</p>
                     </div>
                   </div>
                   <p className='font-semibold'>{slides[currentSlide].middleSection.transfer.amount}</p>
                 </div>
               </motion.div>
             </div>
-
+            {/* tab and desktop view */}
             <div className='hidden md:grid grid-cols-3 gap-4 mt-8 grow w-full text-white/80'>
               
               {/* Left Section */}
@@ -141,29 +140,31 @@ const Hero = () => {
                 className='p-4 rounded-lg flex flex-col justify-end items-center text-start h-full'
               >
                 <div className='h-fit max-w-[260px]'>
-                  <h2 className='font-semibold text-2xl'>{slides[currentSlide].leftSection.country}</h2>
+                  <h3 className=' font-sans text-2xl'>{slides[currentSlide].leftSection.country}</h3>
                   <GoArrowRight className='h-14 w-14' />
-                  <p className='mt-12'>{slides[currentSlide].leftSection.description}</p>
+                  <p className='mt-12'>Seamlessly bridge distances with our effortless remittance service. Send support, and financial care to your loved ones back home.</p>
                 </div>
               </motion.div>
 
               {/* Middle Section */}
               <motion.div
                 variants={itemVariants}
-                className='w-full py-8 gap-36 flex flex-col justify-end items-center text-start h-full'
+                className='w-full max-w-sm mx-auto py-8 gap-36 flex flex-col justify-end items-center text-start h-full'
               >
-                <div className='flex w-full px-16 justify-between items-center'>
+                <div className='flex w-full justify-between items-center'>
                   <Image src={ImageAssets.CanadaFlag} alt="Flag" className='w-12 h-12' />
-                  <h3 className='text-xl text-white font-bold'>{slides[currentSlide].middleSection.amount}</h3>
+                  <h3 className='text-xl text-white font-black font-paytone'>{slides[currentSlide].middleSection.amount}</h3>
                 </div>
 
-                <div className='flex justify-between items-center gap-4 p-4 backdrop-blur-md bg-white/10 rounded-2xl'>
-                  <img src={ImageAssets.CanadaFlag.src} alt="Flag" className='w-6 h-6' />
+                <div className='flex justify-between items-center bg-white/12 gap-4 p-4 backdrop-blur-2xl w-full rounded-2xl'>
+                <div className='flex gap-4 items-center'>
+                  <img src={slides[currentSlide].middleSection.transfer.image.src} alt="Flag" className='w-8 h-8' />
                   <div className='flex flex-col'>
                     <p className='text-white/50'>{slides[currentSlide].middleSection.transfer.time}</p>
-                    <p className='text-white'>{slides[currentSlide].middleSection.transfer.recipient}</p>
+                    <p className='text-white font-semibold'>{slides[currentSlide].middleSection.transfer.description}</p>
                   </div>
-                  <p className='text-white'>{slides[currentSlide].middleSection.transfer.amount}</p>
+                </div>
+                  <p className='text-white font-semibold'>{slides[currentSlide].middleSection.transfer.amount}</p>
                 </div>
               </motion.div>
 
@@ -173,11 +174,14 @@ const Hero = () => {
                 className='p-4 rounded-lg flex flex-col justify-end items-center text-right h-full'
               >
                 <div className='h-fit max-w-[260px]'>
-                  <h2 className='font-semibold text-2xl'>{slides[currentSlide].rightSection.country}</h2>
+                  <h3 className=' text-2xl'>{slides[currentSlide].rightSection.country}</h3>
                   <div className='w-full flex justify-end'>
                     <GoArrowLeft className='h-14 w-14' />
                   </div>
-                  <p className='mt-12'>{slides[currentSlide].rightSection.description}</p>
+                  <div>
+                    <p className='mt-12 font-light'>Get Revve on your phone</p>
+                    <button className='mt-2 px-4 py-3 border-white border-2 rounded-xl text-white font-semibold'>Download the app</button>
+                  </div>
                 </div>
               </motion.div>
 
@@ -185,29 +189,7 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-      <style jsx>{`
-        .clip-path-custom {
-          clip-path: url(#rounded-cutout);
-          -webkit-clip-path: url(#rounded-cutout);
-        }
-      `}</style>
-
-      <svg width="0" height="0" className="hidden md:block">
-        <defs>
-          <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
-            <path d="
-              M0,0 L0,1 
-              L0.35,1 
-              L0.35,0.6
-              Q0.35,0.25 0.4,0.25 
-              L0.6,0.25
-              Q0.65,0.25 0.65,0.6
-              L0.65,1 
-              L1,1 L1,0 Z
-            " />
-          </clipPath>
-        </defs>
-      </svg>
+     
     </section>
   );
 };
