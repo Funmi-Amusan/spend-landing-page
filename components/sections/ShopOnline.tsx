@@ -5,7 +5,7 @@ import BaseButton from '../ui/BaseButton'
 
 const ShopOnline = () => {
   return (
-     <section className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 grow w-full h-gull md:min-h-screen'>
+     <section className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 grow w-full h-full  md:min-h-screen'>
    <div className='flex flex-col gap-12 justify-end h-full items-center md:items-start text-center md:text-start max-w-md p-8'>
      <h2 className='text-2xl font-black'>Shop Online</h2>
      <div className='flex flex-col gap-4'>

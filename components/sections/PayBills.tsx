@@ -12,7 +12,7 @@ const PayBills = () => {
     className="relative h-screen w-full bg-cover bg-center flex justify-between items-center p-8"
     style={{ backgroundImage: `url(${backgroundImage})` }}
   >
-<div className='text-white max-w-[340px] items-center text-center md:text-start md:items-start flex flex-col gap-8'>
+<div className='text-white max-w-[340px] items-center text-center md:text-start md:items-start flex flex-col gap-12'>
     <h2 className='text-2xl font-black '>Pay Bills</h2>
     <p>Say goodbye to long queues and endless processes—our platform offers a seamless solution for paying bills instantly without any hiccups.</p>
     <div>

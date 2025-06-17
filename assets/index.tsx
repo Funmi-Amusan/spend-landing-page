@@ -26,6 +26,7 @@ import GhanaianFlag from './GhanaianFlag.png';
 import KFC from './KFC.png';
 import NigerianFlag from './NigerianFlag.png';
 import MTN from './MTN.png'
+import CrossIcon from './crossIcon.png'
 
 
 export const ImageAssets = {
@@ -56,5 +57,6 @@ export const ImageAssets = {
   Absa,
   KFC,
   GhanaianFlag,
-  GTB
+  GTB,
+  CrossIcon
 };
