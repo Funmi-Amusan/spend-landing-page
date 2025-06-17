@@ -23,13 +23,13 @@
   --color-purple-600: var(--purple-600);
   --color-purple-300: var(--purple-300);
   --color-amber-500: var(--amber-500);
-  --color-blue-500: var(--blue-500)
-  --color-red-500: var(--red-500)
-  --color-green-500: var(--green-500)
+  --color-blue-500: var(--blue-500);
+  --color-red-500: var(--red-500);
+  --color-green-500: var(--green-500);
   --color-offwhite: var(--stone-50);
 
 
-  --font-sans: var(--font-sans)
+  --font-sans: var(--font-sans);
   --font-paytone: var(--font-paytone);
 
   --text-base: 1rem;
