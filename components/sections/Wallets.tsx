@@ -38,19 +38,32 @@ const Wallets = () => {
 
   const getCardAnimations = (index: number) => {
     const startPoint = 0.4 + (index * 0.08)
-    const endPoint = startPoint + 0.25
+    const stackEndPoint = startPoint + 0.25
+    const separationStartPoint = 0.75
+    const separationEndPoint = 0.9
     
     const fromLeft = index % 2 === 0
     const startX = fromLeft ? -400 : 400
     const endX = 0
     
+    // Stacking offset (cards come together)
     const stackOffset = -index * 8
     
-    const x = useTransform(scrollYProgress, [startPoint, endPoint], [startX, endX])
-    const y = useTransform(scrollYProgress, [startPoint, endPoint], [0, stackOffset])
-    const rotate = useTransform(scrollYProgress, [startPoint, endPoint], [fromLeft ? -30 : 30, fromLeft ? -2 : 2])
-    const scale = useTransform(scrollYProgress, [startPoint, endPoint], [0.8, 1])
-    const opacity = useTransform(scrollYProgress, [startPoint, endPoint], [0, 1])
+    // Separation offset (cards spread apart)
+    const separationOffset = (index - (cards.length - 1) / 2) * 60
+    
+    const x = useTransform(scrollYProgress, [startPoint, stackEndPoint], [startX, endX])
+    
+    // Y animation: first stack together, then separate
+    const y = useTransform(
+      scrollYProgress, 
+      [startPoint, stackEndPoint, separationStartPoint, separationEndPoint], 
+      [0, stackOffset, stackOffset, separationOffset]
+    )
+    
+    const rotate = useTransform(scrollYProgress, [startPoint, stackEndPoint], [fromLeft ? -30 : 30, fromLeft ? -2 : 2])
+    const scale = useTransform(scrollYProgress, [startPoint, stackEndPoint], [0.8, 1])
+    const opacity = useTransform(scrollYProgress, [startPoint, stackEndPoint], [0, 1])
     
     return {
       x: useSpring(x, springConfig),
@@ -63,7 +76,7 @@ const Wallets = () => {
 
   const floatingAnimation = useTransform(
     scrollYProgress,
-    [0.7, 1],
+    [0.9, 1],
     [0, 1]
   )
 

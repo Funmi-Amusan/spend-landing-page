@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import React, { useState, useEffect } from 'react';
@@ -11,7 +12,6 @@ import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi';
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(0);
-
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -61,30 +61,40 @@ const Hero = () => {
         >
           <div
             className="absolute inset-0 z-10 hidden lg:block bg-black/60"
-           
             style={{
               clipPath: 'url(#rounded-cutout)',
               WebkitClipPath: 'url(#rounded-cutout)',
             }}
           />
-          <svg width="0" height="0">
-            
-            <defs>
-              <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
-              <path d="
-  M0,0 L0,1 
-  L0.35,1 
-  L0.35,0.6
-  Q0.35,0.25 0.4,0.25 
-  L0.6,0.25
-  Q0.65,0.25 0.65,0.6
-  L0.65,1 
-  L1,1 L1,0 Z
-" />
-
-              </clipPath>
-            </defs>
-          </svg>
+          <svg 
+    className="absolute inset-0 z-15 hidden lg:block pointer-events-none w-full h-full"
+    viewBox="0 0 1 1" 
+    preserveAspectRatio="none"
+  >
+    <path
+    d="M0.35,1 L0.35,0.6 Q0.35,0.25 0.4,0.25 L0.6,0.25 Q0.65,0.25 0.65,0.6 L0.65,1"
+      fill="none"
+      stroke="white"
+      strokeWidth="6"
+      vectorEffect="non-scaling-stroke"
+    />
+  </svg>
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="rounded-cutout" clipPathUnits="objectBoundingBox">
+        <path d="
+          M0,0 L0,1 
+          L0.35,1 
+          L0.35,0.6
+          Q0.35,0.25 0.4,0.25 
+          L0.6,0.25
+          Q0.65,0.25 0.65,0.6
+          L0.65,1 
+          L1,1 L1,0 Z
+        " />
+      </clipPath>
+    </defs>
+  </svg>
           <div className='relative z-20 py-8 size-full flex flex-col items-center justify-center text-center text-white'>
             <motion.h1
               variants={contentVariants}
@@ -153,14 +163,12 @@ const Hero = () => {
         <h3 className="text-2xl font-sans">{slides[currentSlide].leftSection.country}</h3>
       )}
       
-      {/* Left arrow - only animate when reverseOrder is true */}
       <div className='overflow-hidden w-14 h-14 rounded'>
         <motion.div
           initial={{ x: slides[currentSlide].middleSection.reverseOrder ? '-100%' : 0 }}
           animate={{ x: 0 }}
           transition={{ 
             duration: slides[currentSlide].middleSection.reverseOrder ? 0.8 : 0, 
-            // delay: slides[currentSlide].middleSection.reverseOrder ?  : 0, // After text and middle section
             ease: "easeOut"
           }}
           className='w-full h-full flex items-center justify-center'
@@ -214,7 +222,6 @@ const Hero = () => {
     className='p-4 rounded-lg flex flex-col justify-end items-center text-right h-full'
   >
     <div className='h-fit max-w-[260px]'>
-      {/* Right section country text - only animate when reverseOrder is true */}
       {slides[currentSlide].middleSection.reverseOrder ? (
         <SplitText 
           text={slides[currentSlide].rightSection.country}
@@ -234,7 +241,6 @@ const Hero = () => {
             animate={{ x: 0 }}
             transition={{ 
               duration: !slides[currentSlide].middleSection.reverseOrder ? 0.8 : 0, 
-              // delay: !slides[currentSlide].middleSection.reverseOrder ? 1.5 : 0, 
               ease: "easeOut"
             }}
             className='w-full h-full flex items-center justify-center'

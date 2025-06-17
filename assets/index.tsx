@@ -15,10 +15,8 @@ import Calendar from './Calendar.png'
 import ShoppingPhone from './ShoppingMobileMockup.tsx.png'
 import ShoppingImage1 from './shopImage1.png'
 import PayBills from './PayBills.png'
-import Currency from './Currency.png';
 import Eating from './Eating.png';
 import Shopping from './Shopping.png';
-import PaperPlane from './Paper Plane.png';
 import Send from './Send.png';
 import GTB from './GTB.png';
 import Absa from './Absa.png';
@@ -27,6 +25,12 @@ import KFC from './KFC.png';
 import NigerianFlag from './NigerianFlag.png';
 import MTN from './MTN.png'
 import CrossIcon from './crossIcon.png'
+import Naira from './Naira.png'
+import PaperPlane from './Paperplane.png'
+import Cedi from './Cedi.png'
+import ShoppingImage2 from './shopImage2.png'
+import ShoppingImage3 from './shopImage3.png'
+import ShoppingImage4 from './shopImage4.png'
 
 
 export const ImageAssets = {
@@ -45,9 +49,11 @@ export const ImageAssets = {
   CFACard,
   Calendar,
   ShoppingImage1,
+  ShoppingImage2,
+  ShoppingImage3,
+  ShoppingImage4,
   ShoppingPhone,
   PayBills,
-  Currency,
   Eating,
   Shopping,
   PaperPlane,
@@ -58,5 +64,7 @@ export const ImageAssets = {
   KFC,
   GhanaianFlag,
   GTB,
-  CrossIcon
+  CrossIcon,
+  Naira,
+  Cedi
 };

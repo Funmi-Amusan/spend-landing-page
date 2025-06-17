@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { easeInOut, motion } from 'framer-motion';
 
 export const SplitText = ({ 
   text = '',
@@ -33,7 +33,7 @@ export const SplitText = ({
       rotateX: 0,
       transition: {
         duration: duration,
-        ease: [0.215, 0.61, 0.355, 1], // easeOutCubic
+        ease: easeInOut
       },
     },
   };
